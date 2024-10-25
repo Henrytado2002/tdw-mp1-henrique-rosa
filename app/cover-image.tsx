@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import ContentfulImage from "../lib/contentful-image";
 import Link from "next/link";
 

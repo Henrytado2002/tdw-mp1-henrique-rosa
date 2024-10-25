@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const POST_GRAPHQL_FIELDS = `
   slug
   title

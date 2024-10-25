@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { draftMode } from "next/headers";
 
 export async function GET(request: Request) {
