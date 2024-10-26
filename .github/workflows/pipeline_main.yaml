@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  lint_and_test:
+  lint_test_build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -37,13 +37,12 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    steps:
-      # Run build
+      
+      # build and deploy
       - name: Run build
         run: npm run build
 
       - name: deploy
         run: npx netlify-cli deploy --site henrique-rosa-mp1.netlify.app --auth nfp_ifkdRAkXft2kPqik9ArHd3vHFzXEtpVScb2f --prod
+
+  
