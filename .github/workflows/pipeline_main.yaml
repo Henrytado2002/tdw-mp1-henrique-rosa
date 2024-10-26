@@ -1,0 +1,49 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # Adjust Node version to match your project requirements
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm run test
+
+      # Cache Node modules for faster builds in future runs
+      - name: Cache Node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+  build and deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Run build
+      - name: Run build
+        run: npm run build
+
+      - name: deploy
+        run: npx netlify-cli deploy --site henrique-rosa-mp1.netlify.app --auth nfp_ifkdRAkXft2kPqik9ArHd3vHFzXEtpVScb2f --prod

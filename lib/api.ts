@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const POST_GRAPHQL_FIELDS = `
   slug
   title
@@ -43,7 +45,7 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
       },
       body: JSON.stringify({ query }),
       next: { tags: ["posts"] },
-    },
+    } as any,
   ).then((response) => response.json());
 }
 

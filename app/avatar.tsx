@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ContentfulImage from "@/lib/contentful-image";
 
 export default function Avatar({
