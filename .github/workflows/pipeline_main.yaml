@@ -46,4 +46,4 @@ jobs:
         run: npm run build
 
       - name: deploy
-        run: npx netlify-cli deploy --site henrique1244.netlify.app --auth nfp_vkgyC3mTSii8ppc8Vs6toEpKGDwTZ96c4c5f --prod
+        run: npx netlify-cli deploy --site henrique-rosa-mp1.netlify.app --auth nfp_ifkdRAkXft2kPqik9ArHd3vHFzXEtpVScb2f --prod
