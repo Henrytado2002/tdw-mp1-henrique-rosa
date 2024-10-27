@@ -8,7 +8,7 @@ describe("Intro", () => {
   it("should have Blog text", () => {
     render(<Intro />);
 
-    const element = screen.getByText("Teste.");
+    const element = screen.getByText("Blog?");
 
     expect(element).not.toBeNull();
   });
